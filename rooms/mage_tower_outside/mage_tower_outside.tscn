@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_location.gd" type="Script" id=1]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_room.gd" type="Script" id=2]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_background.gd" type="Script" id=3]
+[ext_resource path="res://addons/escoria-core/game/core-scripts/esc_terrain.gd" type="Script" id=4]
+[ext_resource path="res://game/characters/mark/mark.tscn" type="PackedScene" id=5]
+[ext_resource path="res://rooms/mage_tower_outside/objects/mage_tower_2.jpeg" type="Texture" id=6]
+[ext_resource path="res://rooms/mage_tower_outside/objects/scene_scale.png" type="Texture" id=7]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 886, 864, 994, 902, 343, 903, 937, 810, 1002, 827, 848, 841, 708, 837, 486, 867, 705, 757, 684, 724, 727, 725, 786, 767, 791, 789, 449, 840, 448, 816, 635, 824, 343, 886, 681, 792 )
+polygons = [ PoolIntArray( 0, 1, 2 ), PoolIntArray( 3, 4, 0, 5 ), PoolIntArray( 6, 5, 0, 2, 7 ), PoolIntArray( 8, 9, 10, 11, 12 ), PoolIntArray( 7, 13, 14, 15, 6 ), PoolIntArray( 2, 16, 7 ), PoolIntArray( 6, 15, 17, 12 ), PoolIntArray( 12, 17, 8 ) ]
+outlines = [ PoolVector2Array( 684, 724, 705, 757, 681, 792, 635, 824, 448, 816, 449, 840, 486, 867, 343, 886, 343, 903, 994, 902, 886, 864, 1002, 827, 937, 810, 848, 841, 708, 837, 791, 789, 786, 767, 727, 725 ) ]
+
+[node name="mage_tower_outside" type="Node2D"]
+script = ExtResource( 2 )
+global_id = "mage_tower_outside"
+esc_script = "res://rooms/mage_tower_outside/scripts/mage_tower_outside.esc"
+player_scene = ExtResource( 5 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_left = -257.0
+margin_top = -119.0
+margin_right = 1535.0
+margin_bottom = 905.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+script = ExtResource( 3 )
+
+[node name="WalkableArea" type="Navigation2D" parent="."]
+script = ExtResource( 4 )
+scales = ExtResource( 7 )
+scale_min = 0.1
+player_speed_multiplier = 2.0
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="WalkableArea"]
+navpoly = SubResource( 1 )
+
+[node name="RoomObjects" type="Node2D" parent="."]
+
+[node name="StartPos" type="Position2D" parent="."]
+position = Vector2( 669, 874 )
+script = ExtResource( 1 )
+global_id = "mage_tower_outside_start_pos"
+is_start_location = true

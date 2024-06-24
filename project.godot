@@ -184,6 +184,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/escoria-core/game/core-scripts/esc/types/esc_dialog.gd"
 }, {
+"base": "ESCLocation",
+"class": "ESCDialogLocation",
+"language": "GDScript",
+"path": "res://addons/escoria-core/game/core-scripts/esc_dialog_location.gd"
+}, {
 "base": "Control",
 "class": "ESCDialogManager",
 "language": "GDScript",
@@ -248,6 +253,11 @@ _global_script_classes=[ {
 "class": "ESCInputsManager",
 "language": "GDScript",
 "path": "res://addons/escoria-core/game/esc_inputs_manager.gd"
+}, {
+"base": "ESCLocation",
+"class": "ESCInteractionLocation",
+"language": "GDScript",
+"path": "res://addons/escoria-core/game/core-scripts/esc_interaction_location.gd"
 }, {
 "base": "Control",
 "class": "ESCInventory",
@@ -685,6 +695,7 @@ _global_script_class_icons={
 "ESCCompiler": "",
 "ESCCondition": "",
 "ESCDialog": "",
+"ESCDialogLocation": "res://addons/escoria-core/design/esc_location.svg",
 "ESCDialogManager": "",
 "ESCDialogOption": "",
 "ESCDialogOptionsChooser": "",
@@ -698,6 +709,7 @@ _global_script_class_icons={
 "ESCGlobalsManager": "",
 "ESCGroup": "",
 "ESCInputsManager": "",
+"ESCInteractionLocation": "res://addons/escoria-core/design/esc_location.svg",
 "ESCInventory": "",
 "ESCInventoryButton": "",
 "ESCInventoryContainer": "",
@@ -811,7 +823,7 @@ search_in_file_extensions=PoolStringArray( "gd", "shader", "esc" )
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/escoria-core/plugin.cfg", "res://addons/escoria-dialog-simple/plugin.cfg", "res://addons/escoria-ui-9verbs/plugin.cfg", "res://addons/escoria-wizard/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/escoria-core/plugin.cfg", "res://addons/escoria-dialog-simple/plugin.cfg", "res://addons/escoria-ui-simplemouse/plugin.cfg", "res://addons/escoria-wizard/plugin.cfg" )
 
 [escoria]
 
@@ -834,7 +846,7 @@ debug/crash_message="We're sorry, but the game crashed. Please send us the follo
 %s"
 debug/enable_room_selector=true
 debug/room_selector_room_dir="res://game/rooms"
-ui/game_scene="res://addons/escoria-ui-9verbs/game.tscn"
+ui/game_scene="res://addons/escoria-ui-simplemouse/game.tscn"
 ui/inventory_items_path="res://game/items/inventory"
 ui/default_transition="instant"
 ui/transition_paths=[ "res://addons/escoria-core/game/scenes/transitions/shaders/" ]
@@ -865,6 +877,7 @@ dialog_simple/left_click_action="Speed up"
 dialog_simple/stop_talking_animation_on="End of audio"
 debug/enable_hover_stack_viewer=true
 main/escoria_version="4.0-alpha"
+wizard/path_to_rooms="res://rooms"
 
 [input]
 
